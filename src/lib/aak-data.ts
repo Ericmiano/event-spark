@@ -8,6 +8,7 @@ export type TicketTier = {
 
 export type AakEvent = {
   eid: string;
+  slug: string;
   title: string;
   organizer: string;
   venue: string;
@@ -34,6 +35,7 @@ export type AakEvent = {
 
 export const CONVENTION: AakEvent = {
   eid: "baM8JnQ3+AaNamasUK2rTg==",
+  slug: "annual-convention-2026",
   title: "AAK Annual Convention 2026",
   organizer: "Members of the Architectural Association of Kenya",
   venue: "Diamond Leisure Beach & Golf Resort",
@@ -119,8 +121,8 @@ export const CONVENTION: AakEvent = {
 
 export const EVENTS: AakEvent[] = [CONVENTION];
 
-export function findEvent(eid: string): AakEvent | undefined {
-  return EVENTS.find((e) => e.eid === eid || encodeURIComponent(e.eid) === eid);
+export function findEvent(slug: string): AakEvent | undefined {
+  return EVENTS.find((e) => e.slug === slug);
 }
 
 export const KES = (n: number) =>
