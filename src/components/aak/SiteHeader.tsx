@@ -4,10 +4,16 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Events" },
-  { to: "/events/annual-convention-2026", label: "Convention 2026" },
-  { to: "/booking", label: "My booking" },
+  { to: "/" as const, label: "Events", params: undefined },
+  {
+    to: "/events/$slug" as const,
+    label: "Convention 2026",
+    params: { slug: "annual-convention-2026" },
+  },
+  { to: "/booking" as const, label: "My booking", params: undefined },
+  { to: "/login" as const, label: "Event login", params: undefined },
 ];
+
 
 export function SiteHeader() {
   const [condensed, setCondensed] = useState(false);
