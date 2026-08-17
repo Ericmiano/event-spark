@@ -47,10 +47,11 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map((item) => (
+          {NAV.slice(0, 3).map((item) => (
             <Link
               key={item.to}
               to={item.to}
+              params={item.params as never}
               className="rule-link text-sm text-ink transition-colors hover:text-crimson"
               activeProps={{ "data-active": "true", className: "text-crimson" }}
               activeOptions={{ exact: item.to === "/" }}
@@ -83,10 +84,11 @@ export function SiteHeader() {
         )}
       >
         <nav className="flex min-h-0 flex-col gap-4 pt-5 pb-2">
-          {[...NAV, { to: "/login", label: "Event login" }].map((item) => (
+          {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
+              params={item.params as never}
               onClick={() => setOpen(false)}
               className="text-sm text-ink"
               activeProps={{ className: "text-crimson" }}
@@ -97,6 +99,7 @@ export function SiteHeader() {
           ))}
         </nav>
       </div>
+
     </header>
   );
 }
