@@ -34,26 +34,13 @@ export function SiteHeader() {
         condensed ? "py-2" : "py-4",
       )}
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-full opacity-30"
-        style={{
-          backgroundImage: "linear-gradient(90deg, rgba(255,255,255,0.82), rgba(255,255,255,0.52)), url('/assets/Convention%202026%20Logos/1.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
       <div className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6">
         <Link
           to="/"
           aria-label="AAK home"
-          className="group relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-crimson shadow-sm ring-1 ring-crimson/60 transition-transform duration-300 hover:scale-[1.02]"
+          className="group flex h-14 w-14 items-center justify-center rounded-full bg-crimson shadow-sm ring-1 ring-crimson/60 transition-transform duration-300 hover:scale-[1.02]"
         >
-          <span
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-            style={{ backgroundImage: "url('/assets/Convention%202026%20Logos/1.png')" }}
-          />
-          <span className="relative z-10 flex h-full w-full items-center justify-center rounded-full font-display text-[11px] font-black tracking-[0.18em] text-white">
+          <span className="flex h-full w-full items-center justify-center rounded-full font-display text-[11px] font-black tracking-[0.18em] text-white">
             AAK
           </span>
         </Link>
@@ -103,7 +90,7 @@ export function SiteHeader() {
               params={item.params as never}
               onClick={() => setOpen(false)}
               className="text-sm font-semibold text-navy"
-              activeProps={{ className: "text-blue-700 font-black" }}
+              activeProps={{ className: "text-crimson font-black" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}

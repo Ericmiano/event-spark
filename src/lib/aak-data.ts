@@ -109,7 +109,7 @@ export const CONVENTION: AakEvent = {
   ],
   about: [
     "The AAK Annual Convention is AAK's premier event, bringing together professionals from National and County Governments, the private sector and academia to discuss pertinent issues in the industry for the greater benefit of the built environment.",
-    "This year's convention takes place 17–19 September 2026 at the Diamond Leisure Beach & Golf Resort, Diani.",
+    "This year's convention takes place 16–19 September 2026 at the Diamond Leisure Beach & Golf Resort, Diani.",
   ],
   theme: {
     title: "Shifting the Built Environment",

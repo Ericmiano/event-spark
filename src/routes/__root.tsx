@@ -130,17 +130,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-background">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-0 opacity-[0.12]"
-          style={{
-            backgroundImage: "url('/assets/Convention%202026%20Logos/1.png')",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            filter: "saturate(1.2) contrast(1.08)",
-          }}
-        />
         <div className="relative z-10 flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">

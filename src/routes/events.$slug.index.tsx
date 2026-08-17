@@ -13,7 +13,10 @@ import { findEvent, KES, type TicketTier } from "@/lib/aak-data";
 import { Reveal } from "@/components/aak/Reveal";
 import { Countdown } from "@/components/aak/Countdown";
 import { ScrollProgress } from "@/components/aak/ScrollProgress";
-import Iridescence from "@/components/aak/Iridescence";
+import { HeroBackdrop } from "@/components/aak/HeroBackdrop";
+import { EventFaq } from "@/components/aak/EventFaq";
+import { TravelInfo } from "@/components/aak/TravelInfo";
+import { SpeakersComingSoon } from "@/components/aak/SpeakersComingSoon";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
@@ -21,7 +24,9 @@ const SECTIONS = [
   { id: "tickets", label: "Tickets" },
   { id: "tours", label: "Accommodation & Tours" },
   { id: "programme", label: "Programme" },
+  { id: "travel", label: "Travel" },
   { id: "speakers", label: "Speakers" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export const Route = createFileRoute("/events/$slug/")({
@@ -106,22 +111,10 @@ function EventDetail() {
     <>
       <ScrollProgress />
 
-      <div className="mx-auto w-full max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-24">
         {/* Hero */}
-        <section className="relative grid gap-12 overflow-hidden rounded-3xl py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
-          <div className="pointer-events-none absolute inset-0 opacity-65">
-            <Iridescence
-              color={[0.62, 0.16, 0.16]}
-              mouseReact={false}
-              amplitude={0.08}
-              speed={0.2}
-              className="h-full w-full"
-              style={{ filter: "saturate(1.1) brightness(0.92)" }}
-            />
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#2c090d]/65 via-[#4a1015]/45 to-[#22070b]/55" />
-
-          <div className="relative z-10">
+        <HeroBackdrop className="grid gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+          <div>
             <Reveal>
               <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/8 px-3 py-2 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-sm">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-crimson font-display text-[10px] font-black tracking-[0.18em] text-white">
@@ -138,7 +131,7 @@ function EventDetail() {
               </h1>
             </Reveal>
             <Reveal delay={140}>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white italic font-semibold">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/90 font-medium">
                 {event.tagline}
               </p>
             </Reveal>
@@ -184,7 +177,7 @@ function EventDetail() {
             </Reveal>
           </div>
 
-          <Reveal delay={120} className="relative z-10 lg:sticky lg:top-28 lg:self-start">
+          <Reveal delay={120} className="lg:sticky lg:top-28 lg:self-start">
             <div className="overflow-hidden rounded-xl bg-secondary">
               <img
                 ref={posterRef}
@@ -202,7 +195,7 @@ function EventDetail() {
               <span>{event.type}</span>
             </div>
           </Reveal>
-        </section>
+        </HeroBackdrop>
 
         {/* Section rail */}
         <nav className="sticky top-[57px] z-40 -mx-6 bg-background/90 px-6 backdrop-blur-md">
@@ -214,7 +207,7 @@ function EventDetail() {
                   data-active={active === s.id}
                   className={cn(
                     "rule-link transition-colors",
-                    active === s.id ? "text-blue-900" : "text-muted-foreground hover:text-ink",
+                    active === s.id ? "text-crimson font-semibold" : "text-muted-foreground hover:text-ink",
                   )}
                 >
                   {s.label}
