@@ -20,7 +20,7 @@ export const Route = createFileRoute("/booking")({
       },
     ],
   }),
-  component: ViewBooking;
+  component: ViewBooking,
 });
 
 function ViewBooking() {
