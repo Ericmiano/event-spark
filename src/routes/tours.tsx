@@ -79,8 +79,7 @@ function ToursPage() {
                 </Reveal>
                 <Reveal delay={140}>
                   <Link
-                    to="/events/$slug"
-                    params={{ slug: event.slug }}
+                    to="/"
                     className="group mt-8 inline-flex items-center gap-3 bg-crimson px-6 py-3 text-xs uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-navy"
                   >
                     View {event.title}
@@ -89,7 +88,21 @@ function ToursPage() {
                 </Reveal>
               </div>
               <Reveal delay={100}>
-                <MediaGallery media={event.accommodation.media} className="sm:grid-cols-2" />
+                {event.accommodation.media[0]?.kind === "video" ? (
+                  <div className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl bg-secondary sm:mx-0">
+                    <video
+                      src={event.accommodation.media[0].src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      className="aspect-[9/16] w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <MediaGallery media={event.accommodation.media} className="sm:grid-cols-2" />
+                )}
               </Reveal>
             </div>
           </section>

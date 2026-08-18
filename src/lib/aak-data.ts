@@ -164,7 +164,13 @@ export const CONVENTION: AakEvent = {
       "The convention is hosted at the Diamond Leisure Beach & Golf Resort — delegates can book accommodation on site, steps from every session.",
     venue: "Diamond Leisure Beach & Golf Resort",
     city: "Diani, Kenya",
-    media: [{ kind: "placeholder", label: "Diamond Leisure Beach & Golf Resort" }],
+    media: [
+      {
+        kind: "video",
+        src: "/assets/Media/diamonds_leisure-20260818-0001.mp4",
+        alt: "Diamond Leisure Beach & Golf Resort",
+      },
+    ],
   },
   programme: {
     name: "AAK Convention x Biennale Programme 2026.pdf",

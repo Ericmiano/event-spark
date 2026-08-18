@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/aak/SiteHeader";
 import { SiteFooter } from "@/components/aak/SiteFooter";
 
+const CONVENTION_LOGO_SRC = "/assets/Convention 2026 Logos/1.png";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -102,6 +104,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
     ],
   }),
   shellComponent: RootShell,
@@ -130,6 +135,22 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-background">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center opacity-[0.05]"
+        >
+          <img
+            src={CONVENTION_LOGO_SRC}
+            alt=""
+            className="w-[min(90vw,900px)] object-contain"
+          />
+        </div>
+        <img
+          src={CONVENTION_LOGO_SRC}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none fixed bottom-4 right-4 z-40 hidden w-40 object-contain opacity-90 drop-shadow-md sm:block lg:w-52"
+        />
         <div className="relative z-10 flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">

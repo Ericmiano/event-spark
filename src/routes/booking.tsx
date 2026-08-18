@@ -116,8 +116,7 @@ function ViewBooking() {
               ))}
             </dl>
             <Link
-              to="/events/$slug"
-              params={{ slug: CONVENTION.slug }}
+              to="/"
               className="group mt-8 inline-flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-blue-900 font-black"
             >
               Event details

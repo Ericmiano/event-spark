@@ -4,12 +4,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/" as const, label: "Events", params: undefined },
-  {
-    to: "/events/$slug" as const,
-    label: "Convention 2026",
-    params: { slug: "annual-convention-2026" },
-  },
+  { to: "/" as const, label: "About", params: undefined },
   { to: "/tours" as const, label: "Accommodation & Tours", params: undefined },
   { to: "/booking" as const, label: "My booking", params: undefined },
   { to: "/login" as const, label: "Event login", params: undefined },
@@ -46,7 +41,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.slice(0, 4).map((item) => (
+          {NAV.slice(0, 3).map((item) => (
             <Link
               key={item.to}
               to={item.to}

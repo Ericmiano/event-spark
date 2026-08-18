@@ -53,13 +53,23 @@ export function MediaGallery({ media, className }: { media: MediaItem[]; classNa
                 onClick={() => setOpenIndex(i)}
                 className="group relative block aspect-[4/3] w-full overflow-hidden bg-secondary"
               >
-                <img
-                  src={item.kind === "video" ? (item.poster ?? item.src) : item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-                />
+                {item.kind === "video" && !item.poster ? (
+                  <video
+                    src={item.src}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                  />
+                ) : (
+                  <img
+                    src={item.kind === "video" ? item.poster : item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                  />
+                )}
                 {item.kind === "video" && (
                   <span className="absolute inset-0 flex items-center justify-center bg-navy/20 transition-colors group-hover:bg-navy/35">
                     <PlayCircle className="size-9 text-background drop-shadow" />

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Minus, Plus } from "lucide-react";
 import { z } from "zod";
@@ -38,6 +38,7 @@ const STEPS = ["Ticket", "Attendee", "Review"];
 function BookEvent() {
   const { event } = Route.useLoaderData();
   const { tier: presetTier } = Route.useSearch();
+  const router = useRouter();
 
   const openTiers = useMemo(
     () => event.tickets.filter((t) => t.daysLeft !== null),
@@ -84,8 +85,7 @@ function BookEvent() {
               View booking
             </Link>
             <Link
-              to="/events/$slug"
-              params={{ slug: event.slug }}
+              to="/"
               className="border border-navy px-6 py-3 text-xs uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-background"
             >
               Back to event
@@ -100,8 +100,7 @@ function BookEvent() {
     <div className="mx-auto w-full max-w-5xl px-6 py-16">
       <Reveal>
         <Link
-          to="/events/$slug"
-          params={{ slug: event.slug }}
+          to="/"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-crimson"
         >
           <ArrowLeft className="size-3.5" /> {event.title}
@@ -228,9 +227,8 @@ function BookEvent() {
           <div className="mt-10 flex items-center justify-between gap-4">
             <button
               type="button"
-              onClick={() => setStep((s) => Math.max(0, s - 1))}
-              disabled={step === 0}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-crimson disabled:opacity-40"
+              onClick={() => (step === 0 ? router.history.back() : setStep((s) => s - 1))}
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-crimson"
             >
               <ArrowLeft className="size-3.5" /> Back
             </button>

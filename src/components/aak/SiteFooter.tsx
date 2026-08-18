@@ -9,7 +9,7 @@ export function SiteFooter() {
         </p>
         <div className="flex gap-6 text-xs text-muted-foreground">
           <Link to="/" className="rule-link hover:text-crimson">
-            Events
+            About
           </Link>
           <Link to="/booking" className="rule-link hover:text-crimson">
             My booking
